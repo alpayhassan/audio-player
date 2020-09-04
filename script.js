@@ -11,8 +11,8 @@ const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
 const muteBtn = document.getElementById('mute');
 
-// Audio Files
-const audioFiles = [
+// Audio
+const songs = [
     {
         name: '111',
         displayName: 'Surah al-Masad',
@@ -61,7 +61,7 @@ playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
 function loadSong(song) {
     title.innerText = song.displayName;
     artist.textContent = song.artist;
-    music.src = `audiofiles/${song.name}.mp3`;
+    music.src = `quran/${song.name}.mp3`;
     image.src = `img/111.jpg`;
 }
 
@@ -72,26 +72,26 @@ let songIndex = 0;
 function prevSong() {
     songIndex--;
     if (songIndex < 0) {
-        songIndex = audioFiles.length - 1;
+        songIndex = songs.length - 1;
     }
     console.log(songIndex);
-    loadSong(audioFiles[songIndex]);
+    loadSong(songs[songIndex]);
     playSong();
 }
 
 //  Next Song
 function nextSong() {
     songIndex++;
-    if (songIndex > audioFiles.length - 1) {
+    if (songIndex > songs.length - 1) {
         songIndex = 0;
     }
     console.log(songIndex);
-    loadSong(audioFiles[songIndex]);
+    loadSong(songs[songIndex]);
     playSong();
 }
 
 //  On Load - Select First Song
-loadSong(audioFiles[songIndex]);
+loadSong(songs[songIndex]);
 
 //  Update Progress Bar and Time
 function  updateProgressBar(e) {
