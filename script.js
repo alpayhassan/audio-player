@@ -11,27 +11,27 @@ const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
 const muteBtn = document.getElementById('mute');
 
-//Music
-const songs = [
+// Audio Files
+const audioFiles = [
     {
-        name: 'jacinto-1',
-        displayName: 'Electric Chill Machine',
-        artist: 'Jacinto Design',
+        name: '111',
+        displayName: 'Surah al-Masad',
+        artist: 'Muhammad Siddiq al Minshawi',
     },
     {
-        name: 'jacinto-2',
-        displayName: 'Seven Nation Army (Remix)',
-        artist: 'Jacinto Design',
+        name: '112',
+        displayName: 'Surah al-Ikhlaas',
+        artist: 'Muhammad Siddiq al Minshawi',
     },
     {
-        name: 'jacinto-3',
-        displayName: 'third song',
-        artist: 'Jacinto Design',
+        name: '113',
+        displayName: 'Surah al-Falaq',
+        artist: 'Muhammad Siddiq al Minshawi',
     },
     {
-        name: 'metric-1',
-        displayName: 'fourth song',
-        artist: 'Jacinto Design',
+        name: '114',
+        displayName: 'Surah al-Naas',
+        artist: 'Muhammad Siddiq al Minshawi',
     }
 ];
 
@@ -58,11 +58,11 @@ function pauseSong() {
 playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
 
 //  Update DOM
-function  loadSong(song) {
-    title.textContent = song.displayName;
+function loadSong(song) {
+    title.innerText = song.displayName;
     artist.textContent = song.artist;
-    music.src = `music/${song.name}.mp3`;
-    image.src = `img/${song.name}.jpg`;
+    music.src = `quran/${song.name}.mp3`;
+    image.src = `img/111.jpg`;
 }
 
 //  Current Song
@@ -72,26 +72,26 @@ let songIndex = 0;
 function prevSong() {
     songIndex--;
     if (songIndex < 0) {
-        songIndex = songs.length - 1;
+        songIndex = audioFiles.length - 1;
     }
     console.log(songIndex);
-    loadSong(songs[songIndex]);
+    loadSong(audioFiles[songIndex]);
     playSong();
 }
 
 //  Next Song
 function nextSong() {
     songIndex++;
-    if (songIndex > songs.length - 1) {
+    if (songIndex > audioFiles.length - 1) {
         songIndex = 0;
     }
     console.log(songIndex);
-    loadSong(songs[songIndex]);
+    loadSong(audioFiles[songIndex]);
     playSong();
 }
 
 //  On Load - Select First Song
-loadSong(songs[songIndex]);
+loadSong(audioFiles[songIndex]);
 
 //  Update Progress Bar and Time
 function  updateProgressBar(e) {
