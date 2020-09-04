@@ -81,6 +81,7 @@ h3 {
 }
 
 /* Controls */
+
 .player-controls {
   position: relative;
   top: -15px;
@@ -104,6 +105,12 @@ h3 {
   font-size: 40px;
   position: relative;
   top: 3px;
+}
+
+.vol-btn  {
+  position: relative;
+  left: 200px;
+  bottom: 30.5px;
 }
 
 /* Media Query: iPhone (Vertical) */

@@ -9,6 +9,7 @@ const durationEl = document.getElementById('duration');
 const prevBtn = document.getElementById('prev');
 const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
+const muteBtn = document.getElementById('mute');
 
 //Music
 const songs = [
@@ -127,9 +128,23 @@ function  setProgressBar(e) {
     music.currentTime = (clickX / width) * duration;
 }
 
+function muteAudio() {
+    if(music.muted) {
+        music.muted = false;
+    }else{
+        music.muted = true;
+    }
+}
+
+function myFunction(x) {
+    x.classList.toggle("fa-volume-up");
+    // muteBtn.setAttribute('title', 'Unmute');
+}
+
 //  Event Listeners
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
+muteBtn.addEventListener('click', muteAudio);
 music.addEventListener('ended', nextSong);
 music.addEventListener('timeupdate', updateProgressBar);
 progressContainer.addEventListener('click', setProgressBar);
