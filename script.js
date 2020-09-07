@@ -14,24 +14,24 @@ const muteBtn = document.getElementById('mute');
 // Audio
 const songs = [
     {
-        name: '111',
-        displayName: 'Surah al-Masad',
-        artist: 'Muhammad Siddiq al Minshawi',
+        name: 'Beach_waves',
+        displayName: 'Sounds from the Beach',
+        artist: 'Sounds of Nature',
     },
     {
-        name: '112',
-        displayName: 'Surah al-Ikhlaas',
-        artist: 'Muhammad Siddiq al Minshawi',
+        name: 'Boreal_forest_birds',
+        displayName: 'Sounds from the Birds',
+        artist: 'Sounds of Nature',
     },
     {
-        name: '113',
-        displayName: 'Surah al-Falaq',
-        artist: 'Muhammad Siddiq al Minshawi',
+        name: 'Sleepy_night_sounds',
+        displayName: 'Sounds from the Night',
+        artist: 'Sounds of Nature',
     },
     {
-        name: '114',
-        displayName: 'Surah al-Naas',
-        artist: 'Muhammad Siddiq al Minshawi',
+        name: 'Thunder_and_Rain',
+        displayName: 'Sounds from Thunder',
+        artist: 'Sounds of Nature',
     }
 ];
 
@@ -61,8 +61,8 @@ playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
 function loadSong(song) {
     title.innerText = song.displayName;
     artist.textContent = song.artist;
-    music.src = `files/${song.name}.mp3`;
-    image.src = `img/111.jpg`;
+    music.src = `wave/${song.name}.mp3`;
+    image.src = `img/${song.name}.jpg`;
 }
 
 //  Current Song
@@ -128,6 +128,7 @@ function  setProgressBar(e) {
     music.currentTime = (clickX / width) * duration;
 }
 
+// Mute/Unmute Button
 function muteAudio() {
     if(music.muted) {
         music.muted = false;
